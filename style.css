@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 120px auto 120px;
+  gap: 16px;
+  align-items: start;
+  padding: 16px;
+}
+
+/* ── Board ── */
+#board-container {
+  position: relative;
+}
+
+#board-canvas {
+  display: block;
+  border: 2px solid #4a4a8a;
+}
+
+/* ── Overlay ── */
+#overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#overlay.hidden {
+  display: none;
+}
+
+#overlay-text {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(140, 140, 255, 0.8);
+}
+
+#overlay-btn {
+  padding: 10px 28px;
+  font-family: inherit;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  background: #2a2a5e;
+  color: #c0c0ff;
+  border: 2px solid #6a6aff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#overlay-btn:hover {
+  background: #3a3a7e;
+}
+
+/* ── Sidebars ── */
+.stat-block {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: #6666aa;
+  margin-bottom: 6px;
+}
+
+#score,
+#level,
+#lines {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #e0e0ff;
+  letter-spacing: 0.05em;
+}
+
+#next-canvas {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #2a2a5e;
+}
+
+/* ── Mobile layout ── */
+@media (max-width: 520px) {
+  body {
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  #app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  #sidebar-left,
+  #sidebar-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  #sidebar-left .stat-block,
+  #sidebar-right .stat-block {
+    margin-bottom: 0;
+  }
+}
